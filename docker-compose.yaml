@@ -1,0 +1,7 @@
+name: "PLACEHOLDER"
+services:
+
+networks:
+  cloudflared-network:
+    name: cloudflared-network
+    external: true
