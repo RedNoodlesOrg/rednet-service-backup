@@ -1,0 +1,8 @@
++ paperless-stack_pgdata/**
++ paperless-stack_data/**
++ paperless-stack_media/**
++ grapom_prometheus-data-storage/**
++ grapom_prometheus-config-storage/**
++ grapom_grafana-storage/**
++ dashy-stack_dashy_data/** 
+- *
