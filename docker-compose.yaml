@@ -6,7 +6,7 @@ services:
   rclone:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     environment:
       - ONEDRIVE_TOKEN=${ONEDRIVE_TOKEN}
       - ONEDRIVE_DRIVE_ID=${ONEDRIVE_DRIVE_ID}
