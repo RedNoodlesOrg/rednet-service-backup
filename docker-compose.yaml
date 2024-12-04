@@ -1,7 +1,24 @@
-name: "Backup"
+name: backup
+networks:
+  default:
+    name: backup_default
 services:
   rclone:
     build:
       context: .
       dockerfile: dockerfile
-      
+    environment:
+      - ONEDRIVE_TOKEN=${ONEDRIVE_TOKEN}
+      - ONEDRIVE_DRIVE_ID=${ONEDRIVE_DRIVE_ID}
+      - ONEDRIVE_DRIVE_TYPE=${ONEDRIVE_DRIVE_TYPE}
+      - MONITORING_URL=${MONITORING_URL}
+    networks:
+      default: null
+    restart: unless-stopped
+    volumes:
+      - bind:
+          create_host_path: true
+        read_only: true
+        source: /vm/data-root/volumes
+        target: /vm/data-root/volumes
+        type: bind
