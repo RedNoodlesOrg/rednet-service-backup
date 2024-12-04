@@ -7,8 +7,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        RUN_ID: "GITHUB_NO_CACHE"
     environment:
       - ONEDRIVE_TOKEN=${ONEDRIVE_TOKEN}
       - ONEDRIVE_DRIVE_ID=${ONEDRIVE_DRIVE_ID}
