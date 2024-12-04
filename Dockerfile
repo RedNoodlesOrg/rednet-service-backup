@@ -2,8 +2,15 @@ FROM rclone/rclone
 
 ENV RCLONE_JOBBER="https://raw.githubusercontent.com/wolfv6/rclone_jobber/refs/heads/master/rclone_jobber.sh"
 
-RUN mkdir /rclone_jobber && \
-cd /rclone_jobber && \
-wget ${RCLONE_JOBBER}
+RUN mkdir -p /rclone_jobber /etc/cron.d && \
+    cd /rclone_jobber && \
+    wget ${RCLONE_JOBBER}
 
-ADD filter_rules rclone_jobber/filter_rules
+ADD filter_rules /rclone_jobber/filter_rules
+ADD job_backup_remote.sh /rclone_jobber/job_backup_remote.sh
+ADD cronjobs /etc/cron.d/backup-cron
+
+RUN chmod 0644 /etc/cron.d/backup-cron && \
+    crontab /etc/cron.d/backup-cron
+
+CMD ["crond", "-f"]
