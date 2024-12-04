@@ -13,4 +13,8 @@ ADD cronjobs /etc/cron.d/backup-cron
 RUN chmod 0644 /etc/cron.d/backup-cron && \
     crontab /etc/cron.d/backup-cron
 
-CMD ["crond", "-f"]
+# Override the entrypoint to use bash for running cron
+ENTRYPOINT ["/bin/bash"]
+
+# Default command: start crond in foreground
+CMD ["-c", "crond -f"]
