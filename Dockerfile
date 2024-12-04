@@ -1,5 +1,8 @@
 FROM rclone/rclone
 
+ARG RUN_ID
+ENV RUN_ID=${RUN_ID}
+
 ENV RCLONE_JOBBER="https://raw.githubusercontent.com/wolfv6/rclone_jobber/refs/heads/master/rclone_jobber.sh"
 
 RUN mkdir -p /rclone_jobber /etc/cron.d && \
