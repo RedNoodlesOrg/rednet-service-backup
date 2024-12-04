@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 source="/vm/data-root/volumes"
-dest="onedrive:docker_backup"
+dest="OneDrive:backup_docker"
 move_old_files_to="dated_directory"
 options="--filter-from=/rclone_jobber/filter_rules --checksum"
 monitoring_URL="${MONITORING_URL}"
