@@ -17,7 +17,7 @@ RUN chmod 0644 /etc/cron.d/backup-cron && \
     crontab /etc/cron.d/backup-cron
 
 # Override the entrypoint to use bash for running cron
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/sh"]
 
 # Default command: start crond in foreground
 CMD ["-c", "crond -f"]
