@@ -1,4 +1,4 @@
-SHELL=/bin/bash
+SHELL=/bin/sh
 PATH=/usr/local/bin:/usr/bin:/bin
 
 # Run backup daily at midnight
