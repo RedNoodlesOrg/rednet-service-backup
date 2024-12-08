@@ -15,8 +15,7 @@ ADD cronjobs /etc/cron.d/backup-cron
 
 RUN chmod 0644 /etc/cron.d/backup-cron && \
     chmod +x /rclone_jobber/rclone_jobber.sh && \
-    chmod +x /rclone_jobber/job_backup_remote.sh && \
-    crontab /etc/cron.d/backup-cron
+    chmod +x /rclone_jobber/job_backup_remote.sh
 
 # Override the entrypoint to use bash for running cron
 ENTRYPOINT ["/bin/sh"]
