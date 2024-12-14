@@ -10,12 +10,10 @@ RUN mkdir -p /rclone_jobber /etc/cron.d && \
     wget ${RCLONE_JOBBER}
 
 ADD filter_rules /rclone_jobber/filter_rules
-ADD job_backup_remote.sh /rclone_jobber/job_backup_remote.sh
-ADD cronjobs /etc/periodic/daily/backup-cron
+ADD job_backup_remote.sh /etc/periodic/daily/job_backup_remote.sh
 
-RUN chmod 0644 /etc/periodic/daily/backup-cron && \
-    chmod +x /rclone_jobber/rclone_jobber.sh && \
-    chmod +x /rclone_jobber/job_backup_remote.sh
+RUN chmod +x /rclone_jobber/rclone_jobber.sh && \
+    chmod +x /etc/periodic/daily/job_backup_remote.sh
 
 # Override the entrypoint to use bash for running cron
 ENTRYPOINT ["/bin/sh"]
