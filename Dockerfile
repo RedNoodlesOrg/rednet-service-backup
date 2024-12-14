@@ -11,9 +11,9 @@ RUN mkdir -p /rclone_jobber /etc/cron.d && \
 
 ADD filter_rules /rclone_jobber/filter_rules
 ADD job_backup_remote.sh /rclone_jobber/job_backup_remote.sh
-ADD cronjobs /etc/cron.d/backup-cron
+ADD cronjobs /etc/periodic/daily/backup-cron
 
-RUN chmod 0644 /etc/cron.d/backup-cron && \
+RUN chmod 0644 /etc/periodic/daily/backup-cron && \
     chmod +x /rclone_jobber/rclone_jobber.sh && \
     chmod +x /rclone_jobber/job_backup_remote.sh
 
