@@ -1,5 +1,2 @@
-SHELL=/bin/sh
-PATH=/usr/local/bin:/usr/bin:/bin
-
 # Run backup daily at midnight
 0 0 * * * /rclone_jobber/job_backup_remote.sh
